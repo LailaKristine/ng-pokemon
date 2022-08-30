@@ -1,29 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { LoginService } from 'src/app/services/login.service';
+import { UserService } from 'src/app/services/user.service';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
-  styles: [
-    `
-    label {
-      display: block;
-    }
-    .error input { 
-      border: 1px solid red; 
-    }
-    .error label {
-      color: red;
-    }
-    `
-  ],
+  styleUrls: ['./login-form.component.scss'],
 })
-export class LoginFormComponent implements OnInit {
-  constructor() {}
+export class LoginFormComponent {
 
-  ngOnInit(): void {}
+  // Emitt event to parent component - LoginPage
+  @Output() login: EventEmitter<void> = new EventEmitter();
 
-  onSubmit(loginForm: NgForm): void {
-    console.log(loginForm.value);
+  constructor(
+    private readonly loginService: LoginService,
+    private readonly userService: UserService,
+     ) { }
+
+  public loginSubmit(loginForm: NgForm): void {
+
+    //username
+    const { username } = loginForm.value;
+    
+
+    this.loginService.login(username)
+      .subscribe({
+        next: (user: User) => {
+          this.userService.user = user;
+          this.login.emit();
+
+        },
+        error: () => {
+          // Handle that locally
+        }
+      })
   }
 }
+

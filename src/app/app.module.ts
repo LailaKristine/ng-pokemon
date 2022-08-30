@@ -1,30 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPage } from './pages/login/login.page';
-import { RegisterPage } from './pages/register/register.page';
 import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { LoginFormComponent } from './components/login-form/login-form.component';
-import { RegisterFormComponent } from './components/register-form/register-form.component';
-import { LandingPage } from './pages/landing/landing.page';
 import { FormsModule } from '@angular/forms';
+import { ProfilePage } from './pages/profile/profile.page';
 
+// Decorator
 @NgModule({
-  declarations: [
+  declarations: [// Components
     AppComponent,
     LoginPage,
-    RegisterPage,
+    ProfilePage,
     CataloguePage,
     LoginFormComponent,
-    RegisterFormComponent,
-    LandingPage
   ],
-  imports: [
+  imports: [// Modules
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
