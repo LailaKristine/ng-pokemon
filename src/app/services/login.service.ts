@@ -29,7 +29,7 @@ export class LoginService {
 
   // Check if user exist
   private checkUserName(username: string): Observable<User | undefined> {
-    return this.http.get<User[]>('${apiUsers}?username${username}').pipe(
+    return this.http.get<User[]>(`${apiUsers}?username=${username}`).pipe(
       // Rxjs operator
       map((response: User[]) => response.pop())
     )

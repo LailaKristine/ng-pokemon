@@ -8,7 +8,7 @@ import { StorageUtils } from '../utils/storage.util';
 })
 export class UserService {
 
-  private _user?: User;
+  private _user?: User | undefined;
 
   get user(): User | undefined{
     return this._user;

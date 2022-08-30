@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.page.scss']
 })
 export class LoginPage implements OnInit {
-
   constructor(private readonly router: Router) { }
 
   ngOnInit(): void {
