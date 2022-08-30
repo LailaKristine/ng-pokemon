@@ -1,0 +1,20 @@
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <div [ngClass]="{'error': username.errors && (username.dirty || username.touched)}">
+        <label for="username">Trainer name</label>
+        <input type="text"   
+            name="username"
+            ngModel 
+            #username="ngModel"
+            required
+            minlength="2"
+            id="username" />
+    </div>
+
+    <div *ngIf="username.errors && (username.dirty || username.touched)">
+        Username is required and must be at least 2 characters.
+    </div>
+    
+    <button 
+        type="submit" 
+        [disabled]="loginForm.invalid">Login</button>
+</form>
