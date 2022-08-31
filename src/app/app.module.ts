@@ -8,6 +8,8 @@ import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { FormsModule } from '@angular/forms';
 import { ProfilePage } from './pages/profile/profile.page';
+import { ProfileFormComponent } from './components/profile-form/profile-form.component';
+import { CatalogueFormComponent } from './components/catalogue-form/catalogue-form.component';
 
 // Decorator
 @NgModule({
@@ -17,6 +19,8 @@ import { ProfilePage } from './pages/profile/profile.page';
     ProfilePage,
     CataloguePage,
     LoginFormComponent,
+    ProfileFormComponent,
+    CatalogueFormComponent,
   ],
   imports: [// Modules
     BrowserModule,
