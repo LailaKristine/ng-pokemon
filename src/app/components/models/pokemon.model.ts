@@ -1,6 +1,6 @@
 //All information needed for Pokemon
 export interface Pokemon{
-    id: number,
+    id: string,
     name: string,
     url: string,
     ImgUrl: string,

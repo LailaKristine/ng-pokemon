@@ -1,0 +1,23 @@
+<div class="pokemon-grid rounded">
+    <div class="box" 
+    *ngFor="let pokemon of pokemons | paginate:{ itemsPerPage: 10, currentPage: page, totalItems: totalPokemons }">
+        <img [src]="pokemon.sprites.front_shiny" alt="apiPokemon">
+
+        <h3><b>{{pokemon.name}}</b></h3>
+        <p><b>Type: </b>{{ pokemon.types[0].type.name }}</p>
+        <p><b>Height: </b>{{ pokemon.height}}</p>
+        <p><b>Health: </b>{{ pokemon.stats[0].base_stat }}</p>
+        <p><b>Attack Power: </b>{{ pokemon.stats[1].base_stat }}</p>
+        
+        <app-catch-pokemon-list [pokemonId]="pokemon.id"></app-catch-pokemon-list>
+    </div>
+</div>
+                                        <!-- we do pokmeon =[] to reset pokemon for each page -->
+<pagination-controls (pageChange)="page = $event; pokemons =[]; getPokemon()"></pagination-controls>
+
+<!-- 
+<ul>
+    <li *ngFor="let pokemon of pokemons">
+        <span>{{pokemon.}}by {{}}</span>
+    </li>
+</ul> -->

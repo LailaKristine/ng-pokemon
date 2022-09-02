@@ -9,7 +9,11 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { FormsModule } from '@angular/forms';
 import { ProfilePage } from './pages/profile/profile.page';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
-import { CatalogueFormComponent } from './components/catalogue-form/catalogue-form.component';
+import { CatalogueListComponent } from './components/catalogue-list/catalogue-list.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CatchPokemonListComponent } from './components/catch-pokemon-list/catch-pokemon-list.component';
+
 
 // Decorator
 @NgModule({
@@ -20,13 +24,16 @@ import { CatalogueFormComponent } from './components/catalogue-form/catalogue-fo
     CataloguePage,
     LoginFormComponent,
     ProfileFormComponent,
-    CatalogueFormComponent,
+    CatalogueListComponent,
+    NavbarComponent,
+    CatchPokemonListComponent,
   ],
   imports: [// Modules
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

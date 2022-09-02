@@ -1,0 +1,15 @@
+<nav>
+    <h1 class="font-bold text-3xl outline text-center bg-black text-white ">PokeApi</h1>
+
+    <ng-container *ngIf="user !== undefined">
+        <ul class="flex">
+            <li class="px-4">
+                <a routerLink="/profile">Profile</a>
+            </li>
+            <li class="px-4">
+                <a routerLink="/catalogue">Catalogue</a>
+            </li>
+        </ul>
+    </ng-container>
+
+</nav>
